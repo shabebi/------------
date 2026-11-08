@@ -76,7 +76,10 @@ export default function Footer({
           <div className="footer__brand">
             <a className="footer__logo" href="/">
               <span className="footer__emblem">
-                <img src="/logo.png" alt="شعار مكتب التخطيط" />
+                <img
+                  src={logoSrc ?? `${import.meta.env.BASE_URL}logo.png`}
+                  alt="شعار مكتب التخطيط"
+                />
               </span>
               <span className="footer__logo-text">
                 <strong>البوابة الوطنية الرقمية</strong>

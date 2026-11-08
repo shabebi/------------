@@ -109,7 +109,10 @@ export default function Header({
       <header className="hdr__top">
         <a className="hdr__brand" href="/">
           <span className="hdr__logo">
-            <img src={logoSrc ?? "/logo.png"} alt="شعار مكتب التخطيط" />
+            <img
+              src={logoSrc ?? `${import.meta.env.BASE_URL}logo.png`}
+              alt="شعار مكتب التخطيط"
+            />
           </span>
           <span className="hdr__brand-text">
             <strong>البوابة الوطنية الرقمية</strong>
