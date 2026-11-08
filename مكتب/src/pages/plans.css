@@ -1,0 +1,149 @@
+/* ==============================
+   PLANS PAGE
+============================== */
+
+.plans-page {
+  min-height: 60vh;
+  padding-bottom: 80px;
+  font-family: var(--font-primary);
+  background:
+    radial-gradient(
+      ellipse 35% 40% at 100% 20%,
+      color-mix(in srgb, var(--color-primary) 10%, transparent),
+      transparent 70%
+    ),
+    color-mix(in srgb, var(--color-tertiary) 4%, var(--color-white));
+}
+
+.plans-page__body {
+  padding-top: 40px;
+}
+
+.plans-page__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 28px;
+  padding: 28px;
+  background: var(--color-white);
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 8%, var(--color-white));
+  border-radius: 24px;
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--color-secondary) 5%, transparent);
+}
+
+.plans-page__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ==============================
+   RESPONSIVE: TABLETS
+   1000px and below
+============================== */
+
+@media (max-width: 1000px) {
+  .plans-page {
+    padding-bottom: 64px;
+  }
+
+  .plans-page__body {
+    padding-top: 34px;
+  }
+
+  .plans-page__panel {
+    gap: 22px;
+    margin-top: 24px;
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .plans-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* ==============================
+   SMALL TABLETS
+   800px and below
+============================== */
+
+@media (max-width: 800px) {
+  .plans-page__panel {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .plans-page__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ==============================
+   PHONES
+   640px and below
+============================== */
+
+@media (max-width: 640px) {
+  .plans-page {
+    padding-bottom: 48px;
+  }
+
+  .plans-page__body {
+    padding-top: 26px;
+  }
+
+  .plans-page__panel {
+    gap: 16px;
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: var(--radius-medium);
+  }
+
+  .plans-page__grid {
+    gap: 16px;
+  }
+}
+
+/* ==============================
+   SMALL PHONES
+   420px and below
+============================== */
+
+@media (max-width: 420px) {
+  .plans-page {
+    padding-bottom: 40px;
+  }
+
+  .plans-page__body {
+    padding-top: 22px;
+  }
+
+  .plans-page__panel {
+    gap: 14px;
+    margin-top: 16px;
+    padding: 10px;
+  }
+
+  .plans-page__grid {
+    gap: 14px;
+  }
+}
+
+/* ==============================
+   VERY SMALL PHONES
+   360px and below
+============================== */
+
+@media (max-width: 360px) {
+  .plans-page__panel {
+    padding: 8px;
+    gap: 12px;
+  }
+
+  .plans-page__grid {
+    gap: 12px;
+  }
+}

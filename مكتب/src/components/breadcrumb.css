@@ -1,0 +1,136 @@
+/* ==============================
+   BREADCRUMB
+============================== */
+
+.breadcrumb {
+  font-family: var(--font-primary);
+  background: color-mix(in srgb, var(--color-white) 85%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-secondary) 8%, var(--color-white));
+}
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-block: 12px;
+  list-style: none;
+  font-size: 13px;
+  color: var(--color-text-light);
+}
+
+.breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb__item:not(:last-child)::after {
+  content: "/";
+  color: color-mix(in srgb, var(--color-neutral) 50%, var(--color-white));
+}
+
+.breadcrumb__link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+  transition: color 0.15s ease;
+}
+
+.breadcrumb__link:hover {
+  color: color-mix(in srgb, var(--color-primary) 78%, black);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.breadcrumb__current {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ==============================
+   TABLETS
+   1024px and below
+============================== */
+
+@media (max-width: 1024px) {
+  .breadcrumb__list {
+    font-size: 13px;
+    padding-block: 11px;
+    gap: 7px;
+  }
+
+  .breadcrumb__item {
+    gap: 7px;
+  }
+}
+
+/* ==============================
+   SMALL TABLETS
+   768px and below
+============================== */
+
+@media (max-width: 768px) {
+  .breadcrumb__list {
+    font-size: 12px;
+    padding-block: 10px;
+    gap: 6px;
+  }
+
+  .breadcrumb__item {
+    gap: 6px;
+  }
+}
+
+/* ==============================
+   PHONES
+   640px and below
+============================== */
+
+@media (max-width: 640px) {
+  .breadcrumb__list {
+    font-size: 12px;
+    padding-block: 9px;
+    gap: 5px;
+    line-height: 1.7;
+  }
+
+  .breadcrumb__item {
+    gap: 5px;
+  }
+}
+
+/* ==============================
+   SMALL PHONES
+   420px and below
+============================== */
+
+@media (max-width: 420px) {
+  .breadcrumb__list {
+    font-size: 11px;
+    padding-block: 8px;
+    gap: 4px;
+  }
+
+  .breadcrumb__item {
+    gap: 4px;
+  }
+}
+
+/* ==============================
+   VERY SMALL PHONES
+   360px and below
+============================== */
+
+@media (max-width: 360px) {
+  .breadcrumb__list {
+    font-size: 10px;
+    gap: 3px;
+  }
+
+  .breadcrumb__item {
+    gap: 3px;
+  }
+}

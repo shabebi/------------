@@ -1,0 +1,432 @@
+/* ==============================
+   FAQ (الأسئلة الشائعة)
+============================== */
+
+.faq {
+  --faq-accent-dark: color-mix(in srgb, var(--color-primary) 78%, black);
+  --faq-tint: color-mix(in srgb, var(--color-tertiary) 4%, var(--color-white));
+  --faq-border: color-mix(in srgb, var(--color-secondary) 8%, var(--color-white));
+  --faq-orange-line: color-mix(in srgb, var(--color-primary) 60%, var(--color-white));
+
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 16px;
+  padding-block: 56px 72px;
+  font-family: var(--font-primary);
+  background:
+    radial-gradient(
+      ellipse 22% 45% at 0% 40%,
+      color-mix(in srgb, var(--color-primary) 16%, transparent),
+      transparent 75%
+    ),
+    radial-gradient(
+      ellipse 22% 45% at 100% 70%,
+      color-mix(in srgb, var(--color-primary) 14%, transparent),
+      transparent 75%
+    ),
+    var(--faq-tint);
+}
+
+.faq__inner {
+  width: min(100% - (var(--container-padding) * 2), 900px);
+  margin-inline: auto;
+}
+
+/* ==============================
+   HEADING
+============================== */
+
+.faq__heading {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.faq__line {
+  flex: 1;
+  height: 1px;
+}
+
+/* Gradients are physical so both lines fade toward the title */
+.faq__line--end {
+  background: linear-gradient(to left, var(--faq-accent-dark), transparent);
+}
+
+.faq__line--start {
+  background: linear-gradient(to right, var(--faq-accent-dark), transparent);
+}
+
+.faq__title {
+  padding: 10px 40px;
+  background: var(--color-white);
+  border: 2px solid var(--faq-accent-dark);
+  border-radius: var(--radius-medium);
+  box-shadow: 6px 6px 0 var(--faq-accent-dark);
+  font-size: 26px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.faq__subtitle {
+  margin: 24px 0 36px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+/* ==============================
+   ACCORDION
+============================== */
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  list-style: none;
+}
+
+.faq__item {
+  background: color-mix(in srgb, var(--color-white) 70%, transparent);
+  border: 1.5px solid var(--faq-orange-line);
+  border-radius: var(--radius-medium);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.faq__item.is-open {
+  background: var(--color-white);
+  border-color: var(--color-primary);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--color-primary) 14%, transparent),
+    0 12px 30px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.faq__heading-item {
+  font-size: inherit;
+}
+
+.faq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 20px;
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  text-align: start;
+}
+
+.faq__question {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.faq__chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-small);
+  background: color-mix(in srgb, var(--color-primary) 22%, var(--color-white));
+  color: var(--color-secondary);
+  transition: transform 0.25s ease, background 0.2s ease;
+}
+
+.faq__item.is-open .faq__chevron {
+  background: var(--color-primary);
+  transform: rotate(180deg);
+}
+
+/* Smooth open/close without measuring heights */
+.faq__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.faq__item.is-open .faq__panel {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.3s ease, visibility 0s;
+}
+
+.faq__panel-inner {
+  overflow: hidden;
+}
+
+.faq__answer {
+  padding: 4px 20px 22px;
+}
+
+.faq__intro {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
+
+.faq__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+  padding-inline-start: 16px;
+  border-inline-start: 3px solid var(--color-primary);
+  list-style: none;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* ==============================
+   HELP CARD
+============================== */
+
+.faq__help {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 14px 20px;
+  background: var(--color-white);
+  border: 1px solid var(--faq-border);
+  border-radius: var(--radius-medium);
+  font-size: 13px;
+}
+
+.faq__help-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-small);
+  background: color-mix(in srgb, var(--color-primary) 14%, var(--color-white));
+  color: var(--faq-accent-dark);
+}
+
+.faq__help-text {
+  color: var(--color-text-light);
+}
+
+.faq__help-link {
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.faq__help-link:hover {
+  color: var(--faq-accent-dark);
+}
+
+/* ==============================
+   TABLETS
+   1024px and below
+============================== */
+
+@media (max-width: 1024px) {
+  .faq {
+    padding-block: 52px 64px;
+  }
+
+  .faq__heading {
+    gap: 22px;
+  }
+
+  .faq__title {
+    padding: 10px 32px;
+    font-size: 24px;
+  }
+
+  .faq__subtitle {
+    margin: 22px 0 32px;
+  }
+}
+
+/* ==============================
+   SMALL TABLETS
+   768px and below
+============================== */
+
+@media (max-width: 768px) {
+  .faq {
+    padding-block: 46px 60px;
+  }
+
+  .faq__heading {
+    gap: 16px;
+  }
+
+  .faq__title {
+    padding: 9px 26px;
+    font-size: 22px;
+  }
+
+  .faq__subtitle {
+    margin: 20px 0 28px;
+    font-size: 13px;
+  }
+
+  .faq__list {
+    gap: 12px;
+  }
+
+  .faq__trigger {
+    padding: 16px 18px;
+  }
+
+  .faq__question {
+    font-size: 14px;
+  }
+}
+
+/* ==============================
+   PHONES
+   640px and below
+============================== */
+
+@media (max-width: 640px) {
+  .faq {
+    padding-block: 40px 52px;
+  }
+
+  .faq__heading {
+    gap: 12px;
+  }
+
+  .faq__title {
+    padding: 8px 20px;
+    font-size: 20px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .faq__subtitle {
+    margin: 18px 0 24px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .faq__list {
+    gap: 10px;
+  }
+
+  .faq__trigger {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .faq__question {
+    font-size: 13px;
+  }
+
+  .faq__chevron {
+    width: 24px;
+    height: 24px;
+  }
+
+  .faq__answer {
+    padding: 4px 14px 18px;
+  }
+
+  .faq__intro,
+  .faq__steps {
+    font-size: 12px;
+  }
+
+  .faq__help {
+    margin-top: 22px;
+    padding: 12px 14px;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+/* ==============================
+   SMALL PHONES
+   420px and below
+============================== */
+
+@media (max-width: 420px) {
+  .faq {
+    padding-block: 34px 44px;
+  }
+
+  .faq__heading {
+    gap: 8px;
+  }
+
+  .faq__title {
+    padding: 8px 14px;
+    font-size: 18px;
+  }
+
+  .faq__trigger {
+    padding: 12px;
+  }
+
+  .faq__question {
+    font-size: 12px;
+  }
+
+  .faq__answer {
+    padding-inline: 12px;
+  }
+
+  .faq__help {
+    gap: 6px;
+    padding: 12px;
+  }
+}
+
+/* ==============================
+   VERY SMALL PHONES
+   360px and below
+============================== */
+
+@media (max-width: 360px) {
+  .faq__title {
+    font-size: 16px;
+    padding-inline: 10px;
+  }
+
+  .faq__question {
+    font-size: 11px;
+  }
+
+  .faq__intro,
+  .faq__steps {
+    font-size: 11px;
+  }
+
+  .faq__trigger {
+    gap: 8px;
+    padding: 11px 10px;
+  }
+
+  .faq__chevron {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .faq__item,
+  .faq__chevron,
+  .faq__panel,
+  .faq__item.is-open .faq__panel {
+    transition: none;
+  }
+}

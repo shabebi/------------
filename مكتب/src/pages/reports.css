@@ -1,0 +1,172 @@
+/* ==============================
+   REPORTS PAGE
+============================== */
+
+.reports-page {
+  min-height: 60vh;
+  padding-bottom: 80px;
+  font-family: var(--font-primary);
+  background:
+    radial-gradient(
+      ellipse 35% 40% at 100% 20%,
+      color-mix(in srgb, var(--color-primary) 10%, transparent),
+      transparent 70%
+    ),
+    color-mix(in srgb, var(--color-tertiary) 4%, var(--color-white));
+}
+
+.reports-page__body {
+  padding-top: 40px;
+}
+
+.reports-page__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 28px;
+  padding: 32px;
+  background: var(--color-white);
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 8%, var(--color-white));
+  border-radius: 24px;
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--color-secondary) 5%, transparent);
+}
+
+.reports-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  /* room for the 3D card shadows */
+  padding: 0 7px 7px 0;
+}
+
+/* ==============================
+   RESPONSIVE: TABLETS
+   1000px and below
+============================== */
+
+@media (max-width: 1000px) {
+  .reports-page {
+    padding-bottom: 64px;
+  }
+
+  .reports-page__body {
+    padding-top: 34px;
+  }
+
+  .reports-page__panel {
+    gap: 26px;
+    margin-top: 24px;
+    padding: 26px;
+    border-radius: 20px;
+  }
+
+  .reports-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .reports-page__grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ==============================
+   SMALL TABLETS
+   768px and below
+============================== */
+
+@media (max-width: 768px) {
+  .reports-page__panel {
+    gap: 22px;
+    padding: 22px;
+  }
+
+  .reports-page__grid {
+    gap: 20px;
+  }
+}
+
+/* ==============================
+   PHONES
+   680px and below
+============================== */
+
+@media (max-width: 680px) {
+  .reports-page__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .reports-page__grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
+
+/* ==============================
+   SMALL PHONES
+   640px and below
+============================== */
+
+@media (max-width: 640px) {
+  .reports-page {
+    padding-bottom: 48px;
+  }
+
+  .reports-page__body {
+    padding-top: 26px;
+  }
+
+  .reports-page__panel {
+    gap: 20px;
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: var(--radius-medium);
+  }
+
+  .reports-page__grid {
+    gap: 18px;
+    padding: 0 5px 5px 0;
+  }
+}
+
+/* ==============================
+   VERY SMALL PHONES
+   420px and below
+============================== */
+
+@media (max-width: 420px) {
+  .reports-page {
+    padding-bottom: 40px;
+  }
+
+  .reports-page__body {
+    padding-top: 22px;
+  }
+
+  .reports-page__panel {
+    gap: 16px;
+    margin-top: 16px;
+    padding: 10px;
+  }
+
+  .reports-page__grid {
+    gap: 16px;
+    padding: 0 4px 4px 0;
+  }
+}
+
+/* ==============================
+   EXTRA SMALL PHONES
+   360px and below
+============================== */
+
+@media (max-width: 360px) {
+  .reports-page__panel {
+    padding: 8px;
+    gap: 14px;
+  }
+
+  .reports-page__grid {
+    gap: 14px;
+  }
+}

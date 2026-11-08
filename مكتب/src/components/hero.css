@@ -1,0 +1,572 @@
+/* ==============================
+   HERO
+============================== */
+
+.hero__tabs {
+  list-style: none;
+}
+
+.hero__tabs li {
+  list-style: none;
+}
+
+.hero {
+  --hero-orange: var(--color-primary);
+  --hero-orange-dark: color-mix(in srgb, var(--color-primary) 78%, black);
+  --hero-ink: var(--color-secondary);
+
+  font-family: var(--font-primary);
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2px 80px 0 81px;
+}
+
+.hero *,
+.hero *::before,
+.hero *::after {
+  box-sizing: border-box;
+}
+
+/* ==============================
+   HERO CARD
+============================== */
+
+.hero__card {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(
+    135deg,
+    #1b1b1e 0%,
+    #332f35 50%,
+    #1b1b1e 100%
+  );
+  border: 1px solid rgba(215, 195, 173, 0.2);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  color: #fff;
+}
+
+/* ==============================
+   BACKGROUND GLOW
+============================== */
+
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 34% 60% at 8% 12%,
+      rgba(249, 165, 26, 0.34),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 40% 50% at 100% 100%,
+      rgba(150, 3, 26, 0.35),
+      transparent 70%
+    );
+}
+
+/* ==============================
+   HERO CONTENT
+============================== */
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  width: min(640px, 100%);
+  padding-inline-start: 64px;
+  padding-inline-end: 24px;
+  margin-top: -8px;
+  animation: hero-in 0.45s ease both;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero__title {
+  margin: 0 0 18px;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.hero__highlight {
+  display: block;
+  width: fit-content;
+  color: var(--hero-orange);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+  text-decoration-color: rgba(249, 165, 26, 0.45);
+}
+
+.hero__desc {
+  margin: 0 0 34px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.85;
+  color: #e6e1e6;
+}
+
+/* ==============================
+   CTA BUTTON
+============================== */
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--hero-orange);
+  color: var(--hero-ink);
+  font: 700 15px var(--font-primary);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(249, 165, 26, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(249, 165, 26, 0.4);
+}
+
+/* ==============================
+   CAROUSEL ARROWS
+============================== */
+
+.hero__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(27, 27, 30, 0.7);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.hero__arrow:hover {
+  background: rgba(249, 165, 26, 0.9);
+  color: var(--hero-ink);
+  border-color: transparent;
+}
+
+.hero__arrow--right {
+  right: 16px;
+}
+
+.hero__arrow--left {
+  left: 16px;
+}
+
+/* ==============================
+   CAROUSEL DOTS
+============================== */
+
+.hero__dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+.hero__dot.is-active {
+  width: 30px;
+  background: var(--hero-orange);
+}
+
+/* ==============================
+   SECTION FILTER (TABS)
+============================== */
+
+.hero__tabs-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 28px 0 24px;
+}
+
+.hero__tabs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  background: var(--color-white);
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 8%, var(--color-white));
+  border-radius: var(--radius-medium);
+}
+
+.hero__tab {
+  height: 40px;
+  padding: 0 22px;
+  border: 1px solid color-mix(in srgb, var(--color-tertiary) 10%, var(--color-white));
+  border-radius: var(--radius-medium);
+  background: color-mix(in srgb, var(--color-tertiary) 4%, var(--color-white));
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.hero__tab:hover {
+  background: color-mix(in srgb, var(--color-primary) 14%, var(--color-white));
+  border-color: color-mix(in srgb, var(--color-primary) 40%, var(--color-white));
+}
+
+.hero__tab.is-active {
+  background: var(--hero-orange-dark);
+  border-color: var(--hero-orange-dark);
+  color: var(--color-white);
+}
+
+/* ==============================
+   FOCUS
+============================== */
+
+.hero__arrow:focus-visible,
+.hero__cta:focus-visible,
+.hero__dot:focus-visible {
+  outline: 3px solid rgba(249, 165, 26, 0.7);
+  outline-offset: 2px;
+}
+
+/* ==============================
+   RESPONSIVE: TABLETS
+   1100px and below
+============================== */
+
+@media (max-width: 1100px) {
+  .hero {
+    padding-inline: 24px;
+  }
+
+  .hero__card {
+    height: 440px;
+    border-radius: 22px;
+  }
+
+  .hero__content {
+    width: min(580px, 100%);
+    padding-inline-start: 48px;
+  }
+
+  .hero__title {
+    font-size: 40px;
+  }
+
+  .hero__desc {
+    font-size: 15px;
+  }
+
+  .hero__tabs {
+    gap: 8px;
+  }
+
+  .hero__tab {
+    padding-inline: 18px;
+    font-size: 13px;
+  }
+}
+
+/* ==============================
+   SMALL TABLETS
+   900px and below
+============================== */
+
+@media (max-width: 900px) {
+  .hero {
+    padding-inline: 20px;
+  }
+
+  .hero__card {
+    height: 410px;
+  }
+
+  .hero__content {
+    width: min(540px, 100%);
+    padding-inline: 48px;
+  }
+
+  .hero__title {
+    font-size: 36px;
+  }
+
+  .hero__desc {
+    margin-bottom: 28px;
+    font-size: 14px;
+  }
+
+  .hero__arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero__arrow--right {
+    right: 12px;
+  }
+
+  .hero__arrow--left {
+    left: 12px;
+  }
+}
+
+/* ==============================
+   PHONES
+   720px and below
+============================== */
+
+@media (max-width: 720px) {
+  .hero {
+    padding-inline: 14px;
+  }
+
+  .hero__card {
+    min-height: 400px;
+    height: auto;
+    padding: 48px 0 64px;
+    border-radius: 18px;
+  }
+
+  .hero__content {
+    width: 100%;
+    padding-inline: 54px;
+    margin-top: 0;
+  }
+
+  .hero__title {
+    margin-bottom: 16px;
+    font-size: 30px;
+    line-height: 1.25;
+  }
+
+  .hero__highlight {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+  }
+
+  .hero__desc {
+    margin-bottom: 26px;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .hero__cta {
+    height: 44px;
+    padding-inline: 18px;
+    font-size: 14px;
+  }
+
+  .hero__arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+  }
+
+  .hero__arrow--right {
+    right: 10px;
+  }
+
+  .hero__arrow--left {
+    left: 10px;
+  }
+
+  .hero__dots {
+    bottom: 16px;
+    gap: 7px;
+  }
+
+  .hero__dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .hero__dot.is-active {
+    width: 24px;
+  }
+
+  .hero__tabs-wrap {
+    padding: 22px 0 20px;
+  }
+
+  .hero__tabs {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .hero__tab {
+    flex: 1 1 auto;
+    height: 38px;
+    padding-inline: 14px;
+    font-size: 13px;
+  }
+}
+
+/* ==============================
+   SMALL PHONES
+   480px and below
+============================== */
+
+@media (max-width: 480px) {
+  .hero {
+    padding-inline: 10px;
+  }
+
+  .hero__card {
+    min-height: 370px;
+    padding-block: 42px 58px;
+    border-radius: 16px;
+  }
+
+  .hero__content {
+    padding-inline: 44px;
+  }
+
+  .hero__title {
+    font-size: 25px;
+    line-height: 1.3;
+  }
+
+  .hero__desc {
+    margin-bottom: 22px;
+    font-size: 12px;
+    line-height: 1.85;
+  }
+
+  .hero__cta {
+    height: 42px;
+    padding-inline: 14px;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .hero__arrow {
+    width: 29px;
+    height: 29px;
+  }
+
+  .hero__arrow--right {
+    right: 7px;
+  }
+
+  .hero__arrow--left {
+    left: 7px;
+  }
+
+  .hero__tabs-wrap {
+    padding-block: 18px;
+  }
+
+  .hero__tabs {
+    gap: 7px;
+    padding: 7px;
+  }
+
+  .hero__tab {
+    height: 36px;
+    padding-inline: 10px;
+    font-size: 12px;
+  }
+}
+
+/* ==============================
+   VERY SMALL PHONES
+   360px and below
+============================== */
+
+@media (max-width: 360px) {
+  .hero__card {
+    min-height: 350px;
+    padding-block: 38px 54px;
+  }
+
+  .hero__content {
+    padding-inline: 38px;
+  }
+
+  .hero__title {
+    font-size: 22px;
+  }
+
+  .hero__desc {
+    font-size: 11px;
+  }
+
+  .hero__cta {
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .hero__arrow {
+    width: 26px;
+    height: 26px;
+  }
+
+  .hero__tab {
+    font-size: 11px;
+    padding-inline: 8px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__content {
+    animation: none;
+  }
+
+  .hero__cta,
+  .hero__dot,
+  .hero__tab,
+  .hero__arrow {
+    transition: none;
+  }
+}

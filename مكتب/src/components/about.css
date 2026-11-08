@@ -1,0 +1,318 @@
+/* ==============================
+   ABOUT (تفاصيل عن المكتب)
+============================== */
+
+.about {
+  --about-accent-dark: color-mix(in srgb, var(--color-primary) 78%, black);
+  --about-border: color-mix(in srgb, var(--color-secondary) 8%, var(--color-white));
+
+  scroll-margin-top: 16px;
+  padding-block: 56px;
+  font-family: var(--font-primary);
+  background: var(--color-white);
+}
+
+/* ==============================
+   HEADING
+============================== */
+
+.about__heading {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 36px;
+}
+
+.about__line {
+  flex: 1;
+  height: 1px;
+}
+
+/* Gradients are physical so both lines fade toward the title */
+.about__line--end {
+  background: linear-gradient(to left, var(--about-accent-dark), transparent);
+}
+
+.about__line--start {
+  background: linear-gradient(to right, var(--about-accent-dark), transparent);
+}
+
+.about__title {
+  padding: 10px 40px;
+  background: var(--color-white);
+  border: 2px solid var(--about-accent-dark);
+  border-radius: var(--radius-medium);
+  box-shadow: 6px 6px 0 var(--about-accent-dark);
+  font-size: 28px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* ==============================
+   PANEL + CARDS
+============================== */
+
+.about__panel {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 24px;
+  list-style: none;
+  background: var(--color-white);
+  border: 1px solid var(--about-border);
+  border-radius: var(--radius-large);
+}
+
+.about__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 16px 24px;
+  background: var(--color-white);
+  border: 1px solid var(--about-border);
+  border-radius: var(--radius-medium);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about__card:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 55%, var(--color-white));
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--color-primary) 16%, transparent);
+}
+
+.about__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: color-mix(in srgb, var(--color-primary) 20%, var(--color-white));
+  border-radius: var(--radius-medium);
+  color: var(--color-secondary);
+}
+
+.about__name {
+  margin: 22px 0 28px;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.about__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  height: 34px;
+  margin-top: auto;
+  border: 0;
+  border-radius: var(--radius-small);
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.15s ease;
+}
+
+.about__btn:hover {
+  background: color-mix(in srgb, var(--color-primary) 88%, black);
+}
+
+/* ==============================
+   TABLETS
+   1024px and below
+============================== */
+
+@media (max-width: 1024px) {
+  .about {
+    padding-block: 52px;
+  }
+
+  .about__panel {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .about__heading {
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .about__title {
+    font-size: 25px;
+    padding-inline: 32px;
+  }
+
+  .about__card {
+    padding: 24px 16px;
+  }
+}
+
+/* ==============================
+   SMALL TABLETS
+   768px and below
+============================== */
+
+@media (max-width: 768px) {
+  .about {
+    padding-block: 44px;
+  }
+
+  .about__panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .about__heading {
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+
+  .about__title {
+    padding: 9px 24px;
+    font-size: 23px;
+  }
+
+  .about__card {
+    padding: 24px 16px;
+  }
+
+  .about__name {
+    margin: 18px 0 24px;
+    font-size: 17px;
+  }
+}
+
+/* ==============================
+   PHONES
+   640px and below
+============================== */
+
+@media (max-width: 640px) {
+  .about {
+    padding-block: 38px;
+  }
+
+  .about__heading {
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+
+  .about__title {
+    padding: 8px 18px;
+    font-size: 21px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .about__panel {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .about__card {
+    padding: 22px 12px;
+  }
+
+  .about__icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .about__icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .about__name {
+    margin: 16px 0 20px;
+    font-size: 15px;
+  }
+
+  .about__btn {
+    min-height: 38px;
+    font-size: 13px;
+  }
+}
+
+/* ==============================
+   SMALL PHONES
+   420px and below
+============================== */
+
+@media (max-width: 420px) {
+  .about {
+    padding-block: 32px;
+  }
+
+  .about__heading {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .about__title {
+    padding: 7px 14px;
+    font-size: 19px;
+  }
+
+  .about__panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .about__card {
+    padding: 18px 10px;
+  }
+
+  .about__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .about__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .about__name {
+    margin: 14px 0 18px;
+    font-size: 14px;
+  }
+
+  .about__btn {
+    min-height: 36px;
+    padding-inline: 6px;
+    font-size: 12px;
+  }
+}
+
+/* ==============================
+   VERY SMALL PHONES
+   360px and below
+============================== */
+
+@media (max-width: 360px) {
+  .about__panel {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .about__card {
+    padding: 16px 8px;
+  }
+
+  .about__name {
+    font-size: 13px;
+  }
+
+  .about__btn {
+    font-size: 11px;
+  }
+
+  .about__title {
+    font-size: 17px;
+  }
+}

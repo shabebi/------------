@@ -1,0 +1,332 @@
+/* ==============================
+   PILLARS (ركائز عمل المكتب)
+============================== */
+
+.pillars {
+  --pillars-accent-dark: color-mix(in srgb, var(--color-primary) 78%, black);
+  --pillars-tint: color-mix(in srgb, var(--color-tertiary) 4%, var(--color-white));
+  --pillars-border: color-mix(in srgb, var(--color-secondary) 8%, var(--color-white));
+
+  scroll-margin-top: 16px;
+  padding-block: 48px 56px;
+  font-family: var(--font-primary);
+  background:
+    radial-gradient(
+      ellipse 45% 55% at 100% 50%,
+      color-mix(in srgb, var(--color-primary) 10%, transparent),
+      transparent 70%
+    ),
+    var(--pillars-tint);
+}
+
+/* ==============================
+   HEADING
+============================== */
+
+.pillars__heading {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 32px;
+}
+
+.pillars__line {
+  flex: 1;
+  height: 1px;
+}
+
+/* Gradients are physical so both lines fade toward the title */
+.pillars__line--end {
+  background: linear-gradient(to left, var(--pillars-accent-dark), transparent);
+}
+
+.pillars__line--start {
+  background: linear-gradient(to right, var(--pillars-accent-dark), transparent);
+}
+
+.pillars__title {
+  padding: 10px 40px;
+  background: var(--color-white);
+  border: 2px solid var(--pillars-accent-dark);
+  border-radius: var(--radius-medium);
+  box-shadow: 6px 6px 0 var(--pillars-accent-dark);
+  font-size: 28px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* ==============================
+   PANEL + CARDS
+============================== */
+
+.pillars__panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 24px;
+  list-style: none;
+  background: color-mix(in srgb, var(--color-white) 85%, transparent);
+  border: 1px solid var(--pillars-border);
+  border-radius: var(--radius-large);
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--color-secondary) 5%, transparent);
+}
+
+.pillars__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 20px 24px;
+  background: var(--color-white);
+  border: 1px solid var(--pillars-border);
+  border-radius: var(--radius-medium);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pillars__card:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 55%, var(--color-white));
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--color-primary) 16%, transparent);
+}
+
+.pillars__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: color-mix(in srgb, var(--color-primary) 20%, var(--color-white));
+  border-radius: var(--radius-medium);
+  color: var(--color-secondary);
+}
+
+.pillars__name {
+  margin: 20px 0 24px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pillars__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  height: 34px;
+  margin-top: auto;
+  border: 0;
+  border-radius: var(--radius-small);
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.15s ease;
+}
+
+.pillars__btn:hover {
+  background: color-mix(in srgb, var(--color-primary) 88%, black);
+}
+
+/* ==============================
+   RESPONSIVE: TABLETS
+   1000px and below
+============================== */
+
+@media (max-width: 1000px) {
+  .pillars {
+    padding-block: 44px 48px;
+  }
+
+  .pillars__heading {
+    gap: 22px;
+    margin-bottom: 28px;
+  }
+
+  .pillars__title {
+    padding: 10px 32px;
+    font-size: 25px;
+  }
+
+  .pillars__panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding: 22px;
+  }
+
+  .pillars__card {
+    padding: 24px 18px;
+  }
+
+  .pillars__name {
+    font-size: 17px;
+  }
+}
+
+/* ==============================
+   SMALL TABLETS
+   768px and below
+============================== */
+
+@media (max-width: 768px) {
+  .pillars {
+    padding-block: 40px 44px;
+  }
+
+  .pillars__heading {
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+
+  .pillars__title {
+    padding: 9px 26px;
+    font-size: 23px;
+  }
+
+  .pillars__panel {
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .pillars__card {
+    padding: 22px 16px;
+  }
+
+  .pillars__name {
+    margin: 18px 0 22px;
+    font-size: 16px;
+  }
+}
+
+/* ==============================
+   PHONES
+   640px and below
+============================== */
+
+@media (max-width: 640px) {
+  .pillars {
+    padding-block: 36px 40px;
+  }
+
+  .pillars__heading {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .pillars__title {
+    padding: 8px 20px;
+    font-size: 20px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .pillars__panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .pillars__card {
+    padding: 20px 12px;
+  }
+
+  .pillars__icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .pillars__name {
+    margin: 16px 0 20px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .pillars__btn {
+    height: 36px;
+    font-size: 12px;
+  }
+}
+
+/* ==============================
+   SMALL PHONES
+   420px and below
+============================== */
+
+@media (max-width: 420px) {
+  .pillars {
+    padding-block: 32px 36px;
+  }
+
+  .pillars__heading {
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .pillars__title {
+    padding: 8px 14px;
+    font-size: 18px;
+  }
+
+  .pillars__panel {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .pillars__card {
+    padding: 18px 9px;
+  }
+
+  .pillars__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pillars__name {
+    margin: 14px 0 18px;
+    font-size: 13px;
+  }
+
+  .pillars__btn {
+    height: 34px;
+    font-size: 11px;
+  }
+}
+
+/* ==============================
+   VERY SMALL PHONES
+   360px and below
+============================== */
+
+@media (max-width: 360px) {
+  .pillars__title {
+    padding-inline: 10px;
+    font-size: 16px;
+  }
+
+  .pillars__panel {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .pillars__card {
+    padding: 16px 7px;
+  }
+
+  .pillars__name {
+    font-size: 12px;
+  }
+
+  .pillars__btn {
+    gap: 4px;
+    font-size: 10px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .pillars__card,
+  .pillars__btn {
+    transition: none;
+  }
+}

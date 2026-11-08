@@ -1,0 +1,318 @@
+/* ==============================
+   PLAN CARD
+============================== */
+
+.report-card {
+  --report-card-dark: color-mix(in srgb, var(--color-primary) 78%, black);
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+  overflow: hidden;
+  padding: 28px 30px 30px;
+  font-family: var(--font-primary);
+  background: var(--color-white);
+  border: 2px solid var(--report-card-dark);
+  border-radius: var(--radius-large);
+  color: var(--color-text);
+  box-shadow: 7px 7px 0 var(--report-card-dark);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.report-card:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 5px 5px 0 var(--report-card-dark);
+}
+
+/* ==============================
+   CARD CONTENT
+============================== */
+
+.report-card__head,
+.report-card__title,
+.report-card__desc {
+  position: relative;
+  z-index: 1;
+}
+
+.report-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* ==============================
+   TOP ICON
+============================== */
+
+.report-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--report-card-dark);
+  border-radius: var(--radius-medium);
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  box-shadow: 3px 3px 0 var(--report-card-dark);
+}
+
+.report-card__icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+/* ==============================
+   BADGE
+============================== */
+
+.report-card__badge {
+  padding: 4px 14px;
+  border: 1px solid color-mix(
+    in srgb,
+    var(--color-primary) 55%,
+    var(--color-white)
+  );
+  border-radius: 999px;
+  background: color-mix(
+    in srgb,
+    var(--color-primary) 16%,
+    var(--color-white)
+  );
+  color: var(--report-card-dark);
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* ==============================
+   TITLE & DESCRIPTION
+============================== */
+
+.report-card__title {
+  margin-top: 24px;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-secondary);
+}
+
+.report-card__desc {
+  margin: 10px 0 26px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.9;
+  color: var(--color-text-light);
+}
+
+/* ==============================
+   BUTTON
+============================== */
+
+.report-card__btn {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  margin-top: auto;
+
+  border: 2px solid var(--report-card-dark);
+  border-radius: var(--radius-medium);
+  background: var(--color-primary);
+  color: var(--color-secondary);
+
+  font-size: 15px;
+  font-weight: 800;
+
+  box-shadow: 3px 3px 0 var(--report-card-dark);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.report-card__btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.report-card__btn:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--report-card-dark);
+}
+
+.report-card__btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+/* ==============================
+   RESPONSIVE: TABLETS
+   768px and below
+============================== */
+
+@media (max-width: 768px) {
+  .report-card {
+    min-height: 330px;
+    padding: 26px 24px;
+  }
+
+  .report-card__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .report-card__title {
+    margin-top: 22px;
+    font-size: 22px;
+  }
+
+  .report-card__desc {
+    margin-bottom: 22px;
+    font-size: 13px;
+  }
+
+  .report-card__btn {
+    min-height: 46px;
+    font-size: 14px;
+  }
+}
+
+/* ==============================
+   PHONES
+   640px and below
+============================== */
+
+@media (max-width: 640px) {
+  .report-card {
+    min-height: 310px;
+    padding: 24px 20px;
+    border-radius: var(--radius-medium);
+    box-shadow: 5px 5px 0 var(--report-card-dark);
+  }
+
+  .report-card__head {
+    gap: 10px;
+  }
+
+  .report-card__icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .report-card__icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .report-card__badge {
+    padding: 4px 11px;
+    font-size: 11px;
+  }
+
+  .report-card__title {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .report-card__desc {
+    margin: 8px 0 22px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .report-card__btn {
+    min-height: 44px;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .report-card__btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ==============================
+   SMALL PHONES
+   480px and below
+============================== */
+
+@media (max-width: 480px) {
+  .report-card {
+    min-height: 300px;
+    padding: 22px 18px;
+  }
+
+  .report-card__title {
+    margin-top: 18px;
+    font-size: 19px;
+  }
+
+  .report-card__desc {
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+
+  .report-card__btn {
+    min-height: 42px;
+    font-size: 12px;
+  }
+}
+
+/* ==============================
+   VERY SMALL PHONES
+   360px and below
+============================== */
+
+@media (max-width: 360px) {
+  .report-card {
+    min-height: 280px;
+    padding: 18px 16px;
+  }
+
+  .report-card__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .report-card__icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .report-card__badge {
+    padding: 3px 9px;
+    font-size: 10px;
+  }
+
+  .report-card__title {
+    font-size: 17px;
+  }
+
+  .report-card__desc {
+    font-size: 11px;
+  }
+
+  .report-card__btn {
+    min-height: 40px;
+    font-size: 11px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .report-card,
+  .report-card__btn {
+    transition: none;
+  }
+}
